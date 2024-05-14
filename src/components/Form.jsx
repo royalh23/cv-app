@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FormItem from './FormItem';
+import '../styles/Form.css';
 
 export default function Form({
   formItems,
@@ -58,40 +59,42 @@ export default function Form({
 
   if (isAddClicked) {
     return (
-      <form onSubmit={isEdit ? handleSave : handleSubmit}>
+      <form onSubmit={isEdit ? handleSave : handleSubmit} className="form">
         <label htmlFor={formTextOne}>
           {isEducational ? '*School: ' : '*Company: '}
-          <input
-            type="text"
-            name={formTextOne}
-            id={formTextOne}
-            value={isEducational ? formItem.school : formItem.company}
-            onChange={(e) =>
-              isEducational
-                ? setFormItem({ ...formItem, school: e.target.value })
-                : setFormItem({ ...formItem, company: e.target.value })
-            }
-            required
-          />
         </label>
+        <input
+          type="text"
+          name={formTextOne}
+          id={formTextOne}
+          value={isEducational ? formItem.school : formItem.company}
+          onChange={(e) =>
+            isEducational
+              ? setFormItem({ ...formItem, school: e.target.value })
+              : setFormItem({ ...formItem, company: e.target.value })
+          }
+          required
+        />
+
         <label htmlFor={formTextTwo}>
           {isEducational ? '*Degree: ' : '*Position: '}
-          <input
-            type="text"
-            name={formTextTwo}
-            id={formTextTwo}
-            value={isEducational ? formItem.degree : formItem.position}
-            onChange={(e) =>
-              isEducational
-                ? setFormItem({ ...formItem, degree: e.target.value })
-                : setFormItem({ ...formItem, position: e.target.value })
-            }
-            required
-          />
         </label>
+        <input
+          type="text"
+          name={formTextTwo}
+          id={formTextTwo}
+          value={isEducational ? formItem.degree : formItem.position}
+          onChange={(e) =>
+            isEducational
+              ? setFormItem({ ...formItem, degree: e.target.value })
+              : setFormItem({ ...formItem, position: e.target.value })
+          }
+          required
+        />
+
         <div className="dates">
-          <label htmlFor="start-date">
-            *Start Date:{' '}
+          <div>
+            <label htmlFor="start-date">*Start Date: </label>
             <input
               type="date"
               name="start-date"
@@ -105,9 +108,10 @@ export default function Form({
               }
               required
             />
-          </label>
-          <label htmlFor="end-date">
-            *End Date:{' '}
+          </div>
+
+          <div>
+            <label htmlFor="end-date">*End Date: </label>
             <input
               type="date"
               name="end-date"
@@ -121,27 +125,27 @@ export default function Form({
               }
               required
             />
-          </label>
+          </div>
         </div>
-        <label htmlFor="location">
-          *Location:{' '}
-          <input
-            type="text"
-            name="location"
-            id="location"
-            value={formItem.location}
-            onChange={(e) =>
-              setFormItem({
-                ...formItem,
-                location: e.target.value,
-              })
-            }
-            required
-          />
-        </label>
+
+        <label htmlFor="location">*Location: </label>
+        <input
+          type="text"
+          name="location"
+          id="location"
+          value={formItem.location}
+          onChange={(e) =>
+            setFormItem({
+              ...formItem,
+              location: e.target.value,
+            })
+          }
+          required
+        />
+
         {!isEducational && (
-          <label htmlFor="description">
-            *Description:{' '}
+          <>
+            <label htmlFor="description">*Description: </label>
             <textarea
               name="description"
               id="description"
@@ -151,13 +155,15 @@ export default function Form({
               }
               required
             />
-          </label>
+          </>
         )}
         <div className="buttons">
           <button type="button" onClick={handleCancelClick}>
             Cancel
           </button>
-          <button type="submit">Save</button>
+          <button type="submit" className="save">
+            Save
+          </button>
         </div>
       </form>
     );
@@ -174,6 +180,7 @@ export default function Form({
           onDeleteClick={handleDeleteClick}
         />
       ))}
+
       <button onClick={handleAddClick}>
         + {isEducational ? 'Educational' : 'Professional'} Experience
       </button>

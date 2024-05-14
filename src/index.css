@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-size: 1.1rem;
 }
 
 *,
@@ -13,4 +14,9 @@ h2,
 h3 {
   margin: 0;
   padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f3f4f6;
 }

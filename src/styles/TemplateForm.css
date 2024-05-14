@@ -1,0 +1,19 @@
+.template-form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 550px;
+}
+
+button {
+  cursor: pointer;
+  background-color: white;
+  font-size: 0.9rem;
+  border: 4px solid #f3f4f6;
+  border-radius: 15px;
+  padding: 10px 15px;
+}
+
+button:active {
+  transform: translateY(4px);
+}

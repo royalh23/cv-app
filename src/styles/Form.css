@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form .dates {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form label {
+  margin: 20px 0 5px 0;
+  font-weight: bold;
+}
+
+.form .dates,
+button {
+  margin-top: 20px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form input,
+.form textarea {
+  border: 0;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  padding: 10px 10px;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+}
+
+.form .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.save {
+  border: 0;
+  background-color: rgb(10, 108, 237);
+  color: white;
+}
