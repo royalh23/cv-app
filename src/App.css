@@ -1,3 +1,6 @@
 #root {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 20px;
   padding: 20px;
 }

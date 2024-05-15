@@ -4,20 +4,15 @@ import DownIcon from '../assets/chevron-down.svg';
 import PersonalForm from './PersonalForm';
 import Form from './Form';
 
-export default function FormSection({
-  heading,
-  isPersonal = false,
-  isEducational = false,
-  isProfessional = false,
-}) {
+export default function FormSection(props) {
   const [isArrowClicked, setIsArrowClicked] = useState(false);
   const [personalFormData, setPersonalFormData] = useState({
     name: '',
     email: '',
     phone: '',
     address: '',
+    id: crypto.randomUUID(),
   });
-  const [eduFormItems, setEduFormItems] = useState([]);
   const [eduFormItem, setEduFormItem] = useState({
     school: '',
     degree: '',
@@ -26,7 +21,6 @@ export default function FormSection({
     location: '',
     id: crypto.randomUUID(),
   });
-  const [proFormItems, setProFormItems] = useState([]);
   const [proFormItem, setProFormItem] = useState({
     company: '',
     position: '',
@@ -42,7 +36,7 @@ export default function FormSection({
   return (
     <section className="form-section">
       <header>
-        <h2>{heading}</h2>
+        <h2>{props.heading}</h2>
         <img
           src={DownIcon}
           alt="Down arrow"
@@ -50,28 +44,29 @@ export default function FormSection({
           className={`${isArrowClicked ? 'clicked' : ''} arrow`}
         />
       </header>
-      {isArrowClicked && isPersonal && (
+      {isArrowClicked && props.isPersonal && (
         <PersonalForm
           personalFormData={personalFormData}
           setPersonalFormData={setPersonalFormData}
+          setPersonalFormArr={props.setPersonalFormArr}
         />
       )}
 
-      {isArrowClicked && isEducational && (
+      {isArrowClicked && props.isEducational && (
         <Form
-          formItems={eduFormItems}
+          formItems={props.eduFormItems}
           formItem={eduFormItem}
-          setFormItems={setEduFormItems}
+          setFormItems={props.setEduFormItems}
           setFormItem={setEduFormItem}
           isEducational={true}
         />
       )}
 
-      {isArrowClicked && isProfessional && (
+      {isArrowClicked && props.isProfessional && (
         <Form
-          formItems={proFormItems}
+          formItems={props.proFormItems}
           formItem={proFormItem}
-          setFormItems={setProFormItems}
+          setFormItems={props.setProFormItems}
           setFormItem={setProFormItem}
           isEducational={false}
         />

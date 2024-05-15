@@ -3,10 +3,11 @@ import '../styles/Form.css';
 export default function PersonalForm({
   personalFormData,
   setPersonalFormData,
+  setPersonalFormArr,
 }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(personalFormData);
+    setPersonalFormArr([personalFormData]);
   };
 
   return (
@@ -25,7 +26,6 @@ export default function PersonalForm({
         }
         required
       />
-
       <label htmlFor="email">*Email: </label>
       <input
         type="email"
@@ -40,7 +40,6 @@ export default function PersonalForm({
         }
         required
       />
-
       <label htmlFor="phone">*Phone number: </label>
       <input
         type="tel"
@@ -55,7 +54,6 @@ export default function PersonalForm({
         }
         required
       />
-
       <label htmlFor="address">*Address: </label>
       <input
         type="text"
@@ -70,7 +68,6 @@ export default function PersonalForm({
         }
         required
       />
-
       <div className="buttons">
         <button type="submit" className="save">
           Save

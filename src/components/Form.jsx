@@ -34,10 +34,7 @@ export default function Form({
   };
 
   const handleDeleteClick = (e) => {
-    const newFormItems = formItems.filter(
-      (item) => item.id !== e.target.dataset.id,
-    );
-    setFormItems([...newFormItems]);
+    setFormItems(formItems.filter((item) => item.id !== e.target.dataset.id));
   };
 
   const handleSubmit = (e) => {
@@ -48,8 +45,9 @@ export default function Form({
 
   const handleSave = (e) => {
     e.preventDefault();
-    const newFormItems = formItems.filter((item) => item.id !== formItem.id);
-    setFormItems([...newFormItems, formItem]);
+    setFormItems(
+      formItems.map((item) => (item.id === formItem.id ? formItem : item)),
+    );
     setIsEdit(false);
     handleCancelClick();
   };
@@ -75,7 +73,6 @@ export default function Form({
           }
           required
         />
-
         <label htmlFor={formTextTwo}>
           {isEducational ? '*Degree: ' : '*Position: '}
         </label>
@@ -91,7 +88,6 @@ export default function Form({
           }
           required
         />
-
         <div className="dates">
           <div>
             <label htmlFor="start-date">*Start Date: </label>
@@ -109,7 +105,6 @@ export default function Form({
               required
             />
           </div>
-
           <div>
             <label htmlFor="end-date">*End Date: </label>
             <input
@@ -127,7 +122,6 @@ export default function Form({
             />
           </div>
         </div>
-
         <label htmlFor="location">*Location: </label>
         <input
           type="text"
@@ -142,7 +136,6 @@ export default function Form({
           }
           required
         />
-
         {!isEducational && (
           <>
             <label htmlFor="description">*Description: </label>
@@ -180,7 +173,6 @@ export default function Form({
           onDeleteClick={handleDeleteClick}
         />
       ))}
-
       <button onClick={handleAddClick}>
         + {isEducational ? 'Educational' : 'Professional'} Experience
       </button>
