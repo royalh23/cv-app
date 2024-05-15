@@ -63,6 +63,7 @@ export default function Template({
               <div>
                 <h3>{item.company}</h3>
                 <p>{item.position}</p>
+                <p>{item.description}</p>
               </div>
             </div>
           ))}
