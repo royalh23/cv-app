@@ -6,6 +6,7 @@
 .form .dates {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .form label {
@@ -18,7 +19,7 @@ button {
   margin-top: 20px;
 }
 
-textarea {
+.form textarea {
   resize: vertical;
   min-height: 100px;
 }
@@ -42,7 +43,7 @@ textarea {
   gap: 10px;
 }
 
-.save {
+.form .save {
   border: 0;
   background-color: rgb(10, 108, 237);
   color: white;

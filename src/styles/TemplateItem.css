@@ -1,0 +1,10 @@
+.template-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.italic {
+  font-style: italic;
+}

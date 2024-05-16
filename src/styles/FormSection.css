@@ -9,12 +9,7 @@
   justify-content: space-between;
 }
 
-img[src$='svg'] {
-  width: 30px;
-  height: 30px;
-}
-
-img[src$='svg']:hover {
+.form-section [src$='svg']:hover {
   cursor: pointer;
 }
 

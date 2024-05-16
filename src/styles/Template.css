@@ -40,9 +40,3 @@
   padding: 10px 5px;
   margin-bottom: 10px;
 }
-
-.template-content > div {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  margin-bottom: 15px;
-}
