@@ -9,4 +9,4 @@ Skills practiced:
 - Sharing state between components ("single source of truth");
 - Creating, reading, updating, and deleting various structures effectively.
 
-[Live link](https://cv-app-royal.netlify.app/)
+[Live link](https://cv-appp.netlify.app/)
